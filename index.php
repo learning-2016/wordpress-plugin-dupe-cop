@@ -62,6 +62,7 @@ function wp_dupe_cop_page() {
 
 				<p>
 					<input type="submit" class="button-primary" value="Compare Spun Article" /> 
+					<input type="button" class="button" value="<?php echo $result; ?>%" />
 				</p>
 
  			</form> 
