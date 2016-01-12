@@ -47,3 +47,15 @@ function wp_dupe_cop_tab() {
 	add_options_page('wp dupeco', 'WP Dupecop', 'manage_options', 'wpdupecup', 'wp_dupe_cop_page');
 }  
 add_action('admin_menu', 'wp_dupe_cop_tab');
+
+
+/**
+* Register settings
+*/
+function wp_dupe_cop_settings() {
+	register_setting('wpdupecupgroup', 'wpdupecupsettings');
+}
+
+add_action('admin_init', 'wp_dupe_cop_settings');
+
+
