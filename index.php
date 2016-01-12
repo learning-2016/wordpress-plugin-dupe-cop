@@ -37,7 +37,8 @@ function wp_dupe_cop_page() {
 	<!-- Write an html code here.. -->
 
 		<div class="wrap">
-			<form action="options.php" method="POST">  
+			<form action="options.php" method="POST"> 
+				<?php settings_fields('wpdupecupgroup'); ?>
 
 				<h1> Wordpress Dupecop Settings  </h1>
 
