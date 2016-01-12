@@ -13,25 +13,29 @@ Author URI: http://erwin.com
 src:  https://www.youtube.com/watch?v=_nW-h52I7Tg
 */ 
 
-
 /**
 * Global
+* Retreived the saved from the field
 */ 
 $wpdupecop_options = get_option('wpdupecopsettings');
  
 /**
 * Origianl article
-*/
- 
+*/ 
+$original =  $wpdupecop_options['original']; 
+
 /**
 * Spun articles
 */ 
+$rewritten =  $wpdupecop_options['rewrite']; 
+ 
  
 /**
 * Admin page 
 */  
 function wp_dupe_cop_page() {
 	global $wpdupecop_options;
+	global $result;
 	ob_start();?> 
  
 	<!-- Write an html code here.. -->
@@ -53,7 +57,7 @@ function wp_dupe_cop_page() {
 				<textarea name="wpdupecopsettings[rewrite]" rows="20"  cols="100"  ><?php  echo $wpdupecop_options['rewrite'];  ?></textarea>
 
 				<p>
-				<input type="submit" class="button-primary" value="Compare Spun Article" />
+					<input type="submit" class="button-primary" value="Compare Spun Article" /> 
 				</p>
 
  			</form> 
@@ -70,8 +74,7 @@ function wp_dupe_cop_tab() {
 	add_options_page('wp dupeco', 'WP Dupecop', 'manage_options', 'wpdupecup', 'wp_dupe_cop_page');
 }  
 add_action('admin_menu', 'wp_dupe_cop_tab');
-
-
+ 
 /**
 * Register settings
 */
@@ -79,6 +82,4 @@ function wp_dupe_cop_settings() {
 	register_setting('wpdupecupgroup', 'wpdupecopsettings');
 }
 
-add_action('admin_init', 'wp_dupe_cop_settings');
-
-
+add_action('admin_init', 'wp_dupe_cop_settings'); 
