@@ -28,8 +28,12 @@ $original =  $wpdupecop_options['original'];
 * Spun articles
 */ 
 $rewritten =  $wpdupecop_options['rewrite']; 
- 
- 
+  
+/**
+* Compare article
+*/
+$wp_dupecopfunction = similar_text($original, $rewritten, $result); 
+  
 /**
 * Admin page 
 */  
