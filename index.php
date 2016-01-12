@@ -37,16 +37,17 @@ function wp_dupe_cop_page() {
 	<!-- Write an html code here.. -->
 
 		<div class="wrap">
-			<form action="options.php" method="POST">
+			<form action="options.php" method="POST">  
+
 				<h1> Wordpress Dupecop Settings  </h1>
 
 				<p> 
-					<h3> Paste your Origianl Article Here </h3>
+					<h3> Paste your Original Article Here </h3>
 				</p> 
 				<textarea name="wpdupecopsettings[original]" rows="20"  cols="100"  ><?php  echo $wpdupecop_options['original'];  ?></textarea>
 
 				<p> 
-					<h3> Paste your Origianl Article Here </h3>
+					<h3> Paste your Rewritten Article Here </h3>
 				</p> 
 				<textarea name="wpdupecopsettings[rewrite]" rows="20"  cols="100"  ><?php  echo $wpdupecop_options['rewrite'];  ?></textarea>
 
