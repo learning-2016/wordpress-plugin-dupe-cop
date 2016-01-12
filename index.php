@@ -30,7 +30,14 @@ function wp_dupe_cop_page() {
  
 	<!-- Write an html code here.. -->
 
-	<?php  
+		<div class="wrap">
+			<form action="options.php" method="POST">
+				<h1> Wordpress Dupecop Settings  </h1>
+			</form> 
+		</div>
+
+	<?php   
+	echo ob_get_clean(); 
 }
  
 /**
