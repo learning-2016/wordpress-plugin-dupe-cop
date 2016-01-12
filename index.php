@@ -15,6 +15,11 @@ src:  https://www.youtube.com/watch?v=_nW-h52I7Tg
 
 
 /**
+* Global
+*/ 
+$wpdupecop_options = get_option('wpdupecopsettings');
+ 
+/**
 * Origianl article
 */
  
@@ -26,6 +31,7 @@ src:  https://www.youtube.com/watch?v=_nW-h52I7Tg
 * Admin page 
 */  
 function wp_dupe_cop_page() {
+	global $wpdupecop_options;
 	ob_start();?> 
  
 	<!-- Write an html code here.. -->
@@ -33,10 +39,25 @@ function wp_dupe_cop_page() {
 		<div class="wrap">
 			<form action="options.php" method="POST">
 				<h1> Wordpress Dupecop Settings  </h1>
-			</form> 
-		</div>
 
-	<?php   
+				<p> 
+					<h3> Paste your Origianl Article Here </h3>
+				</p> 
+				<textarea name="wpdupecopsettings[original]" rows="20"  cols="100"  ><?php  echo $wpdupecop_options['original'];  ?></textarea>
+
+				<p> 
+					<h3> Paste your Origianl Article Here </h3>
+				</p> 
+				<textarea name="wpdupecopsettings[rewrite]" rows="20"  cols="100"  ><?php  echo $wpdupecop_options['rewrite'];  ?></textarea>
+
+				<p>
+				<input type="submit" class="button-primary" value="Compare Spun Article" />
+				</p>
+
+ 			</form> 
+		</div>
+		<?php
+ 
 	echo ob_get_clean(); 
 }
  
@@ -53,7 +74,7 @@ add_action('admin_menu', 'wp_dupe_cop_tab');
 * Register settings
 */
 function wp_dupe_cop_settings() {
-	register_setting('wpdupecupgroup', 'wpdupecupsettings');
+	register_setting('wpdupecupgroup', 'wpdupecopsettings');
 }
 
 add_action('admin_init', 'wp_dupe_cop_settings');
